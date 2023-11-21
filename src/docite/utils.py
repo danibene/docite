@@ -1,6 +1,7 @@
 from importlib import resources
 from pathlib import Path
 
+import pkg_resources
 import pypandoc
 
 import docite
@@ -26,4 +27,7 @@ def get_path_to_assets() -> Path:
     Returns:
       Path: path to the assets directory
     """
-    return Path(resources.files(docite) / "assets")
+    if hasattr(resources, "files"):
+        return Path(resources.files(docite) / "assets")
+    else:
+        return Path(pkg_resources.resource_filename(docite, "assets"))
