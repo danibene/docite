@@ -24,7 +24,7 @@ import argparse
 import logging
 import sys
 
-from docite import __version__
+from docite import __version__, convert
 
 __author__ = "danibene"
 __copyright__ = "danibene"
@@ -36,7 +36,7 @@ _logger = logging.getLogger(__name__)
 # ---- Python API ----
 # The functions defined in this section can be imported by users in their
 # Python scripts/interactive interpreter, e.g. via
-# `from docite.skeleton import fib`,
+# `from docite.cli import fib`,
 # when using this Python module as a library.
 
 
@@ -72,13 +72,30 @@ def parse_args(args):
     Returns:
       :obj:`argparse.Namespace`: command line parameters namespace
     """
-    parser = argparse.ArgumentParser(description="Just a Fibonacci demonstration")
+    parser = argparse.ArgumentParser(description="")
     parser.add_argument(
         "--version",
         action="version",
         version=f"docite {__version__}",
     )
-    parser.add_argument(dest="n", help="n-th Fibonacci number", type=int, metavar="INT")
+    parser.add_argument(
+        "--inputfile",
+        type=str,
+        required=True,
+        help="Input markdown file",
+    )
+    parser.add_argument(
+        "--outputfile",
+        type=str,
+        required=True,
+        help="Output markdown file",
+    )
+    parser.add_argument(
+        "--bibfile",
+        type=str,
+        required=True,
+        help="BibTeX file",
+    )
     parser.add_argument(
         "-v",
         "--verbose",
@@ -122,8 +139,11 @@ def main(args):
     """
     args = parse_args(args)
     setup_logging(args.loglevel)
-    _logger.debug("Starting crazy calculations...")
-    print(f"The {args.n}-th Fibonacci number is {fib(args.n)}")
+    _logger.debug("Converting...")
+    print("Input file: ", args.inputfile)
+    print("Output file: ", args.outputfile)
+    print("Bib file: ", args.bibfile)
+    convert.convert_with_refs(args.inputfile, args.outputfile, args.bibfile)
     _logger.info("Script ends here")
 
 
@@ -144,6 +164,6 @@ if __name__ == "__main__":
     # After installing your project with pip, users can also run your Python
     # modules as scripts via the ``-m`` flag, as defined in PEP 338::
     #
-    #     python -m docite.skeleton 42
+    #     python -m docite.cli 42
     #
     run()
