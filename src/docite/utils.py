@@ -30,4 +30,4 @@ def get_path_to_assets() -> Path:
     if hasattr(resources, "files"):
         return Path(resources.files(docite) / "assets")
     else:
-        return Path(pkg_resources.resource_filename(docite, "assets"))
+        return Path(pkg_resources.resource_filename("docite", "assets"))
