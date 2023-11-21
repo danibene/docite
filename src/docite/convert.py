@@ -84,13 +84,13 @@ def convert_with_refs(
 
     download_pandoc()
     pypandoc.convert_file(
-        inputfile,
+        str(inputfile),
         "gfm",
-        outputfile=outputfile,
+        outputfile=str(outputfile),
         extra_args=[
             "-s",
             "--bibliography",
-            bibfile,
+            str(bibfile),
             "--citeproc",
             "--csl",
             style,
