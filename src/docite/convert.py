@@ -9,7 +9,7 @@ from .utils import download_pandoc, get_path_to_assets
 
 def substitute_label_refs(
     inputfile: Union[str, Path], outputfile: Optional[Union[str, Path]] = None
-) -> None:
+):
     """Substitute label references in a markdown file
 
     Args:
@@ -32,7 +32,7 @@ def substitute_label_refs(
 
 def remove_citation_metadata(
     inputfile: Union[str, Path], outputfile: Optional[Union[str, Path]] = None
-) -> None:
+):
     """Remove citation metadata from a markdown file
 
     Args:
@@ -65,25 +65,22 @@ def convert_with_refs(
     inputfile: Union[str, Path],
     outputfile: Union[str, Path],
     bibfile: Union[str, Path],
-    stylefile: Optional[Union[str, Path]] = None,
-) -> None:
+    style: str = "ieee",
+):
     """Convert a markdown file to a PDF with references
 
     Args:
         inputfile (Union[str, Path]): input markdown file
         outputfile (Union[str, Path]): output PDF file
         bibfile (Union[str, Path]): bibliography file
-        style (Optional[Union[str, Path]]): citation style file (default: None).
-            If None, the IEEE citation style is used.
+        style (str): bibliography style
 
     Returns:
         None
     """
 
-    if stylefile is None:
+    if style == "ieee":
         style = get_path_to_assets() / "ieee.csl"
-    else:
-        style = Path(stylefile)
 
     download_pandoc()
     pypandoc.convert_file(
