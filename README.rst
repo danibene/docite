@@ -43,6 +43,28 @@ This is a small package I created to help me format references in my documentati
 It uses pandoc to convert the references from bibtex to a format that can be used
 in markdown files.
 
+Installation
+================
+You can install the package via pip::
+
+    pip install docite
+
+Usage
+================
+You can use the package from the command line as follows::
+
+    python -m docite.cli --input <input_file> --output <output_file> --bib <bib_file>
+
+You can also use the package from python as follows::
+
+        from docite import convert
+        convert.convert_with_refs(input_file, output_file, bib_file)
+
+My personal workflow is:
+
+- I use Zotero to manage my references and then export them to a Better Bibtex file.
+- I use the Citation Picker for Zotero extension within VSCode to add the references to my markdown files.
+- I use docite to generate an output markdown file with the references formatted.
 
 .. _pyscaffold-notes:
 
