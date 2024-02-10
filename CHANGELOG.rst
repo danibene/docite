@@ -2,7 +2,7 @@
 Changelog
 =========
 
-[Unreleased]
+Version 0.1.2 [2024-02-10]
 ===========
 - Added more documentation on how to use the package.
 - Removed example fibonacci CLI from the package.
