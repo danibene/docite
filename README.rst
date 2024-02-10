@@ -43,6 +43,12 @@ This is a small package I created to help me format references in my documentati
 It uses pandoc to convert the references from bibtex to a format that can be used
 in markdown files.
 
+For example, this `input file`_ along with the corresponding `bibliography file`_ can be used to generate this `output file`_.
+
+.. _input file: https://github.com/danibene/docite/blob/main/src/docite/assets/example_inputfile.md
+.. _bibliography file: https://github.com/danibene/docite/blob/main/src/docite/assets/example_bibfile.bib
+.. _output file: https://github.com/danibene/docite/blob/main/src/docite/assets/example_outputfile.md
+
 Installation
 ================
 You can install the package via pip::
@@ -53,16 +59,16 @@ Usage
 ================
 You can use the package from the command line as follows::
 
-    docite --input <input_file> --output <output_file> --bib <bib_file>
+    docite --inputfile <INPUTFILE> --outputfile <OUTPUTFILE> --bibfile <BIFILE>
 
 or::
 
-    python -m docite.cli --input <input_file> --output <output_file> --bib <bib_file>
+    python -m docite.cli --inputfile <INPUTFILE> --outputfile <OUTPUTFILE> --bibfile <BIFILE>
 
 You can also use the package from python as follows::
 
         from docite import convert
-        convert.convert_with_refs(input_file, output_file, bib_file)
+        convert.convert_with_refs(inputfile, outputfile, bibfile)
 
 My personal workflow is:
 
@@ -70,12 +76,22 @@ My personal workflow is:
 - I use the Citation Picker for Zotero extension within VSCode to add the references to my markdown files.
 - I use docite to generate an output markdown file with the references formatted.
 
-
 Here is a gif showing how I use the package:
 
-.. image:: https://github.com/danibene/docite/blob/assets/usage_2024-02-10.gif
+.. image:: https://raw.githubusercontent.com/danibene/docite/assets/usage_2024-02-10.gif
     :alt: Usage
     :align: center
+
+Customize
+================
+By default, the package will use the IEEE citation style. You can change the citation style by using the `--stylefile` option, e.g., to change the citation style to APA you can use the following command::
+
+    docite --inputfile <INPUTFILE> --outputfile <OUTPUTFILE> --bibfile <BIFILE> --stylefile path/to/downloaded/apa.csl
+
+You can find citation style language files in the `citation-style-language repository`_.
+
+.. _citation-style-language repository: https://github.com/citation-style-language/styles
+
 
 .. _pyscaffold-notes:
 
