@@ -5,6 +5,8 @@ Changelog
 [Unreleased]
 ===========
 - Added more documentation on how to use the package.
+- Removed example fibonacci CLI from the package.
+- Added docite as entry point.
 
 Version 0.1.1 [2024-02-09]
 ===========

@@ -53,6 +53,10 @@ Usage
 ================
 You can use the package from the command line as follows::
 
+    docite --input <input_file> --output <output_file> --bib <bib_file>
+
+or::
+
     python -m docite.cli --input <input_file> --output <output_file> --bib <bib_file>
 
 You can also use the package from python as follows::
