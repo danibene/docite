@@ -1,7 +1,5 @@
 from pathlib import Path
 
-from pytest import TempPathFactory
-
 from docite.cli import main
 from docite.utils import get_path_to_assets
 
@@ -10,7 +8,7 @@ __copyright__ = "danibene"
 __license__ = "MIT"
 
 
-def test_main(tmp_path_factory: TempPathFactory) -> None:
+def test_main(tmp_path_factory):
     """CLI Tests"""
     inputfile = str(get_path_to_assets() / "example_inputfile.md")
     # Load content of inputfile
