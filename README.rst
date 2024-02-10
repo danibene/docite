@@ -7,9 +7,6 @@
     .. image:: https://readthedocs.org/projects/docite/badge/?version=latest
         :alt: ReadTheDocs
         :target: https://docite.readthedocs.io/en/stable/
-    .. image:: https://img.shields.io/coveralls/github/<USER>/docite/main.svg
-        :alt: Coveralls
-        :target: https://coveralls.io/r/<USER>/docite
     .. image:: https://img.shields.io/pypi/v/docite.svg
         :alt: PyPI-Server
         :target: https://pypi.org/project/docite/
@@ -22,6 +19,10 @@
     .. image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter
         :alt: Twitter
         :target: https://twitter.com/docite
+
+.. image:: https://img.shields.io/coveralls/github/<USER>/docite/main.svg
+        :alt: Coveralls
+        :target: https://coveralls.io/r/<USER>/docite
 
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
@@ -36,8 +37,9 @@ docite
 
     Some tools to format references in documentation
 
-
-A longer description of your project goes here...
+This is a small package I created to help me format references in my documentation.
+It uses pandoc to convert the references from bibtex to a format that can be used
+in markdown files.
 
 
 .. _pyscaffold-notes:
