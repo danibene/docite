@@ -93,7 +93,7 @@ def convert_with_refs(
             str(bibfile),
             "--citeproc",
             "--csl",
-            style,
+            str(style),
             "--metadata",
             "link-citations=true",
         ],
