@@ -43,6 +43,12 @@ This is a small package I created to help me format references in my documentati
 It uses pandoc to convert the references from bibtex to a format that can be used
 in markdown files.
 
+For example, this `input file`_ along with the corresponding `bibliography file`_ can be used to generate this `output file`_.
+
+.. _input file: https://github.com/danibene/docite/blob/main/src/docite/assets/example_inputfile.md
+.. _bibliography file: https://github.com/danibene/docite/blob/main/src/docite/assets/example_bibfile.bib
+.. _output file: https://github.com/danibene/docite/blob/main/src/docite/assets/example_outputfile.md
+
 Installation
 ================
 You can install the package via pip::
@@ -73,7 +79,7 @@ My personal workflow is:
 
 Here is a gif showing how I use the package:
 
-.. image:: https://github.com/danibene/docite/blob/assets/usage_2024-02-10.gif
+.. image:: https://raw.githubusercontent.com/danibene/docite/assets/usage_2024-02-10.gif
     :alt: Usage
     :align: center
 
