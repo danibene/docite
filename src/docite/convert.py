@@ -23,7 +23,7 @@ def substitute_label_refs(
     if outputfile is None:
         outputfile = inputfile
 
-    with open(inputfile, "r") as f:
+    with open(inputfile, "r", encoding="utf-8") as f:
         text = f.read()
         text = re.sub(r"\[\/\/\]: # \(ref-([^\)]+)\)", r"[\1](#\1)", text)
     with open(outputfile, "w") as f:
