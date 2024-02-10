@@ -314,8 +314,8 @@ on PyPI_, the following steps can be used to release a new version for
 .. |the repository service| replace:: GitHub
 .. |contribute button| replace:: "Create pull request"
 
-.. _repository: https://github.com/<USERNAME>/docite
-.. _issue tracker: https://github.com/<USERNAME>/docite/issues
+.. _repository: https://github.com/danibene/docite
+.. _issue tracker: https://github.com/danibene/docite/issues
 .. <-- end -->
 
 
