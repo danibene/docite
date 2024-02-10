@@ -58,6 +58,13 @@ def parse_args(args: List[str]) -> argparse.Namespace:
         help="BibTeX file",
     )
     parser.add_argument(
+        "--stylefile",
+        type=str,
+        required=False,
+        default=None,
+        help="CSL style file. If not provided, the default style (IEEE) is used.",
+    )
+    parser.add_argument(
         "-v",
         "--verbose",
         dest="loglevel",
@@ -103,8 +110,12 @@ def main(args: List[str]) -> None:
     print("Input file: ", parsed_args.inputfile)
     print("Output file: ", parsed_args.outputfile)
     print("Bib file: ", parsed_args.bibfile)
+    print("Style file: ", parsed_args.stylefile)
     convert.convert_with_refs(
-        parsed_args.inputfile, parsed_args.outputfile, parsed_args.bibfile
+        parsed_args.inputfile,
+        parsed_args.outputfile,
+        parsed_args.bibfile,
+        parsed_args.stylefile,
     )
     _logger.info("Script ends here")
 
