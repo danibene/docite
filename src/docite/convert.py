@@ -65,7 +65,7 @@ def convert_with_refs(
     inputfile: Union[str, Path],
     outputfile: Union[str, Path],
     bibfile: Union[str, Path],
-    style: str = "ieee",
+    stylefile: Optional[Union[str, Path]] = None,
 ):
     """Convert a markdown file to a PDF with references
 
@@ -73,14 +73,17 @@ def convert_with_refs(
         inputfile (Union[str, Path]): input markdown file
         outputfile (Union[str, Path]): output PDF file
         bibfile (Union[str, Path]): bibliography file
-        style (str): bibliography style
+        style (Optional[Union[str, Path]]): citation style file (default: None).
+            If None, the IEEE citation style is used.
 
     Returns:
         None
     """
 
-    if style == "ieee":
+    if stylefile is None:
         style = get_path_to_assets() / "ieee.csl"
+    else:
+        style = Path(stylefile)
 
     download_pandoc()
     pypandoc.convert_file(
