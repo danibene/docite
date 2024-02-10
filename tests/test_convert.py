@@ -6,6 +6,7 @@ import pytest
 
 # Import the functions you want to test
 from docite.convert import convert_with_refs, substitute_label_refs
+from docite.utils import get_path_to_assets
 
 
 # Define a fixture to create a temporary directory for testing
@@ -53,15 +54,35 @@ def test_convert_with_refs(temp_dir, temp_bib_file):
     input_file = temp_dir / "input.md"
     output_file = temp_dir / "output.md"
     bib_file = temp_bib_file
-
     # Create a sample input markdown file
     with open(input_file, "w") as f:
-        f.write("This is a sample markdown file.")
+        f.write("This is a sample markdown file @example.")
 
     convert_with_refs(input_file, output_file, bib_file)
 
-    # Check if the output PDF file has been created
     assert output_file.is_file()
+    # Read the output file and check if the references are substituted correctly
+    with open(output_file, "r") as f:
+        text = f.read()
+        assert "J. Doe, “Example title,”" in text
+
+
+def test_convert_with_refs_apa_csl(temp_dir, temp_bib_file):
+    input_file = temp_dir / "input.md"
+    output_file = temp_dir / "output.md"
+    bib_file = temp_bib_file
+    csl_file = get_path_to_assets() / "apa.csl"
+    # Create a sample input markdown file
+    with open(input_file, "w") as f:
+        f.write("This is a sample markdown file [@example].")
+
+    convert_with_refs(input_file, output_file, bib_file, csl_file)
+
+    assert output_file.is_file()
+    # Read the output file and check if the references are substituted correctly
+    with open(output_file, "r") as f:
+        text = f.read()
+        assert "Doe, J. (2023). *Example title*." in text
 
 
 # Run the tests
