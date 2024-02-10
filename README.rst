@@ -23,8 +23,8 @@
     :target: https://pypi.org/project/docite/
 
 .. image:: https://img.shields.io/coveralls/github/danibene/docite/main.svg
-        :alt: Coveralls
-        :target: https://coveralls.io/r/danibene/docite
+    :alt: Coveralls
+    :target: https://coveralls.io/r/danibene/docite
 
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
@@ -65,6 +65,13 @@ My personal workflow is:
 - I use Zotero to manage my references and then export them to a Better Bibtex file.
 - I use the Citation Picker for Zotero extension within VSCode to add the references to my markdown files.
 - I use docite to generate an output markdown file with the references formatted.
+
+
+Here is a gif showing how I use the package:
+
+.. image:: https://github.com/danibene/docite/blob/assets/usage_2024-02-10.gif
+    :alt: Usage
+    :align: center
 
 .. _pyscaffold-notes:
 
