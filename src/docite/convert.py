@@ -9,7 +9,7 @@ from .utils import download_pandoc, get_path_to_assets
 
 def substitute_label_refs(
     inputfile: Union[str, Path], outputfile: Optional[Union[str, Path]] = None
-):
+) -> None:
     """Substitute label references in a markdown file
 
     Args:
@@ -32,7 +32,7 @@ def substitute_label_refs(
 
 def remove_citation_metadata(
     inputfile: Union[str, Path], outputfile: Optional[Union[str, Path]] = None
-):
+) -> None:
     """Remove citation metadata from a markdown file
 
     Args:
@@ -66,7 +66,7 @@ def convert_with_refs(
     outputfile: Union[str, Path],
     bibfile: Union[str, Path],
     stylefile: Optional[Union[str, Path]] = None,
-):
+) -> None:
     """Convert a markdown file to a PDF with references
 
     Args:

@@ -8,8 +8,8 @@
 # serve to show the default.
 
 import os
-import sys
 import shutil
+import sys
 
 # -- Path setup --------------------------------------------------------------
 
@@ -31,7 +31,7 @@ sys.path.insert(0, os.path.join(__location__, "../src"))
 try:  # for Sphinx >= 1.7
     from sphinx.ext import apidoc
 except ImportError:
-    from sphinx import apidoc
+    from sphinx import apidoc  # type: ignore
 
 output_dir = os.path.join(__location__, "api")
 module_dir = os.path.join(__location__, "../src/docite")
@@ -233,7 +233,7 @@ htmlhelp_basename = "docite-doc"
 
 # -- Options for LaTeX output ------------------------------------------------
 
-latex_elements = {
+latex_elements: dict = {
     # The paper size ("letterpaper" or "a4paper").
     # "papersize": "letterpaper",
     # The font size ("10pt", "11pt" or "12pt").

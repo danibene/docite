@@ -1,6 +1,7 @@
 import shutil
 import tempfile
 from pathlib import Path
+from typing import Generator
 
 import pytest
 
@@ -11,7 +12,7 @@ from docite.utils import get_path_to_assets
 
 # Define a fixture to create a temporary directory for testing
 @pytest.fixture
-def temp_dir():
+def temp_dir() -> Generator:
     temp_dir = tempfile.mkdtemp()
     yield Path(temp_dir)
     shutil.rmtree(temp_dir)
@@ -19,7 +20,7 @@ def temp_dir():
 
 # Define a fixture to create a temporary BibTeX file
 @pytest.fixture
-def temp_bib_file(temp_dir):
+def temp_bib_file(temp_dir: Path) -> Path:
     bib_file = temp_dir / "test.bib"
     with open(bib_file, "w") as f:
         f.write(
@@ -33,7 +34,7 @@ def temp_bib_file(temp_dir):
 
 
 # Define test cases for 'substitute_label_refs' function
-def test_substitute_label_refs(temp_dir):
+def test_substitute_label_refs(temp_dir: Path) -> None:
     input_file = temp_dir / "input.md"
     output_file = temp_dir / "output.md"
 
@@ -50,7 +51,7 @@ def test_substitute_label_refs(temp_dir):
 
 
 # Define test cases for 'convert_with_refs' function
-def test_convert_with_refs(temp_dir, temp_bib_file):
+def test_convert_with_refs(temp_dir: Path, temp_bib_file: Path) -> None:
     input_file = temp_dir / "input.md"
     output_file = temp_dir / "output.md"
     bib_file = temp_bib_file
@@ -67,7 +68,7 @@ def test_convert_with_refs(temp_dir, temp_bib_file):
         assert "J. Doe, “Example title,”" in text
 
 
-def test_convert_with_refs_apa_csl(temp_dir, temp_bib_file):
+def test_convert_with_refs_apa_csl(temp_dir: Path, temp_bib_file: Path) -> None:
     input_file = temp_dir / "input.md"
     output_file = temp_dir / "output.md"
     bib_file = temp_bib_file
