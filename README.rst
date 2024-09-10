@@ -81,7 +81,7 @@ Here is a gif showing how I use the package:
 .. image:: https://raw.githubusercontent.com/danibene/docite/assets/usage_2024-02-10.gif
     :alt: Usage
     :align: center
-    :width: 80px
+    :width: 200px
 
 Customize
 ================
