@@ -78,10 +78,10 @@ My personal workflow is:
 
 Here is a gif showing how I use the package:
 
-.. image:: https://raw.githubusercontent.com/danibene/docite/assets/usage_2024-02-10.gif
-    :alt: Usage
-    :width: 500px
-    :align: center
+.. figure:: https://raw.githubusercontent.com/danibene/docite/assets/usage_2024-02-10.gif
+   :alt: Usage
+   :width: 500px
+   :align: center
 
 
 Customize
