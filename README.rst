@@ -78,10 +78,11 @@ My personal workflow is:
 
 Here is a gif showing how I use the package:
 
-.. figure:: https://raw.githubusercontent.com/danibene/docite/assets/usage_2024-02-10.gif
-   :alt: Usage
-   :width: 500px
-   :align: center
+.. raw:: html
+
+   <div style="text-align: center;">
+     <img src="https://raw.githubusercontent.com/danibene/docite/assets/usage_2024-02-10.gif" alt="Usage" width="500px"/>
+   </div>
 
 
 Customize
